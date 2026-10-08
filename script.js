@@ -1,0 +1,5 @@
+const today=document.getElementById('today');today.textContent=new Intl.DateTimeFormat('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'}).format(new Date());
+const menu=document.getElementById('menu'),nav=document.getElementById('nav');menu?.addEventListener('click',()=>{nav.style.display=nav.style.display==='flex'?'none':'flex';nav.style.flexDirection='column';nav.style.height='auto';nav.style.paddingBottom='18px'});
+document.querySelectorAll('.filter').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.filter').forEach(b=>b.classList.remove('active'));btn.classList.add('active');const f=btn.dataset.filter;document.querySelectorAll('.story').forEach(s=>s.style.display=f==='all'||s.dataset.category===f?'':'none')}));
+document.getElementById('theme')?.addEventListener('click',()=>{document.body.classList.toggle('dark');document.getElementById('theme').textContent=document.body.classList.contains('dark')?'☀':'☾';});
+document.getElementById('subscribe')?.addEventListener('submit',e=>{e.preventDefault();const input=document.getElementById('email');alert(`Thanks — ${input.value} is on the demo list.`);input.value=''});
